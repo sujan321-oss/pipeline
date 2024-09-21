@@ -2,7 +2,7 @@
 Pipeline{
 
     agent{
-        docker {image 'node16-alpine'}
+        docker { image 'node:16-alpine' } 
     }
 
     stages{
@@ -14,12 +14,12 @@ Pipeline{
         }
     }
 
-    Post{
+    post{
         success{
-            sh echo "sucessfully executes"
+            sh 'echo "sucessfully executes"'
         }
         failure{
-            sh echo "failed to execute"
+            sh 'echo "failed to execute"'
         }
     }
 
