@@ -4,7 +4,7 @@ pipeline{
     stage('clone and pull the github repository') {
         agent any
         steps {
-            git branch: 'main', url: 'https://github.com/sujan321-oss/pipeline/settings/hooks/503065055?tab=deliveries'
+            git branch: 'main', url: 'https://github.com/sujan321-oss/pipeline'
         }
         
        }
