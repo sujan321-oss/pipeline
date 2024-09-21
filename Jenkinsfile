@@ -12,7 +12,7 @@ pipeline{
     stage("build the docker file"){
         agent any
         steps {
-            dir('pipeline') {
+            dir('pipeline/application') {
                 sh 'docker build -t nodeapp .'
             }
        
