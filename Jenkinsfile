@@ -4,19 +4,7 @@ pipeline{
     stage('clone and pull the github repository') {
         agent any
         steps {
-
-            script{
-            if (FileExists('pipeline')) {
-                            dir('pipeline'){
-                            sh 'git pull'  
-                            }
-                    }
-             else {
-                    sh 'git clone https://github.com/sujan321-oss/pipeline.git'
-                 }
-            }
-
-           
+            git branch: 'main', url: 'https://github.com/sujan321-oss/pipeline/settings/hooks/503065055?tab=deliveries'
         }
         
        }
