@@ -1,24 +1,48 @@
-pipeline {  // lowercase 'pipeline'
+pipeline{
+    agent none
+  stages {
+    stage('Build in localmachine') {
+        agent any
+        steps {
+            sh 'git clone https://github.com/sujan321-oss/pipeline.git'
+        }
+        
+       }
 
-    agent {
-        docker { image 'node:16-alpine' }  // Using a Node.js Docker container
+    stage("build the docker file"){
+        agent any
+        steps {
+            dir('pipeline') {
+                sh 'docker build -t nodeapp .'
+            }
+       
+        }
     }
 
-    stages {
-        stage('Build') {  // Corrected stage syntax
-            steps {
-                sh 'node --version'  // Executes Node.js version command
+    stage("run the docker file"){
+        agent {
+            docker {
+                 image 'nodeapp' 
+                 args '-p 3000:3000'
             }
         }
+
+        steps {
+          sh 'echo "docker file is running"'
+        }
+
     }
 
-    post {
+ 
+    
+  }
+
+  post {
         success {
-            echo 'Successfully executed the build step'  // Fixed the typo and removed 'sh'
+            sh 'echo "sucessful"'
         }
         failure {
-            echo 'Failed to execute'  // Removed 'sh' for a simple echo
+            sh 'echo "failed"'
         }
     }
-
 }
