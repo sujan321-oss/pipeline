@@ -1,10 +1,19 @@
 pipeline{
     agent any
   stages {
-    stage('Build in localmachine') {
+    stage('clone and pull the github repository') {
         agent any
         steps {
-            sh 'git clone https://github.com/sujan321-oss/pipeline.git'
+
+            if (FileExists('pipeline')) {
+                dir('pipeline'){
+                  sh 'git pull'  
+                }
+            }
+            else {
+                    sh 'git clone https://github.com/sujan321-oss/pipeline.git'
+            }
+           
         }
         
        }
@@ -28,8 +37,6 @@ pipeline{
         }
 
     }
-
- 
     
   }
 
