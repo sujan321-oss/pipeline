@@ -5,14 +5,17 @@ pipeline{
         agent any
         steps {
 
+            script{
             if (FileExists('pipeline')) {
-                dir('pipeline'){
-                  sh 'git pull'  
-                }
-            }
-            else {
+                            dir('pipeline'){
+                            sh 'git pull'  
+                            }
+                    }
+             else {
                     sh 'git clone https://github.com/sujan321-oss/pipeline.git'
+                 }
             }
+
            
         }
         
