@@ -1,0 +1,26 @@
+
+Pipeline{
+
+    agent{
+        docker {image 'node16-alpine'}
+    }
+
+    stages{
+        stage 'Build' {
+            steps{
+                  sh 'node --version'
+            }
+
+        }
+    }
+
+    Post{
+        success{
+            sh echo "sucessfully executes"
+        }
+        failure{
+            sh echo "failed to execute"
+        }
+    }
+
+}
