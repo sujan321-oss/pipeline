@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent any
   stages {
     stage('Build in localmachine') {
         agent any
@@ -40,7 +40,6 @@ pipeline{
   post {
   
         success {
-            agent any
             sh 'echo "sucessful"'
         }
         failure {
