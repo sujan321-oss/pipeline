@@ -16,7 +16,7 @@ Pipeline{
 
     post{
         success{
-            sh 'echo "sucessfully executes"'
+            sh 'echo "sucessfully executes the dsd"'
         }
         failure{
             sh 'echo "failed to execute"'
