@@ -38,6 +38,9 @@ pipeline{
   }
 
   post {
+    agent{
+        any
+    }
         success {
             sh 'echo "sucessful"'
         }
