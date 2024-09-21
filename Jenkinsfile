@@ -24,7 +24,7 @@ pipeline{
 
         steps {
           sh 'docker rm -f nodeapplication || true '
-          sh 'docker run -d -p 3000:3000 -name nodeapplication nodeapp '
+          sh 'docker run -d -p 3000:3000 --name nodeapplication nodeapp '
           sh 'echo "docker file is running"'
         }
     }
