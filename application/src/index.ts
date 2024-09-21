@@ -5,7 +5,7 @@ const app = express()
 const PORT:number = 3000
 
 app.get("/",(req,res)=>{
-   return res.json("request is received")
+   return res.json("server recived the received")
 })
 
 app.listen(PORT,()=>{
