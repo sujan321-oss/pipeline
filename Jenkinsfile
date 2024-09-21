@@ -44,7 +44,7 @@ pipeline{
             sh 'echo "sucessful"'
         }
         failure {
-            agent any
+      
             sh 'echo "failed"'
         }
     }
