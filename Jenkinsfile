@@ -40,9 +40,11 @@ pipeline{
   post {
   
         success {
+            agent any
             sh 'echo "sucessful"'
         }
         failure {
+            agent any
             sh 'echo "failed"'
         }
     }
