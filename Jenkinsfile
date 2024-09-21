@@ -20,14 +20,10 @@ pipeline{
     }
 
     stage("run the docker file"){
-        agent {
-            docker {
-                 image 'nodeapp' 
-                 args '-p 3000:3000'
-            }
-        }
+       agent any
 
         steps {
+          sh 'docker run -d -p 3000:3000 nodeapp '
           sh 'echo "docker file is running"'
         }
 
