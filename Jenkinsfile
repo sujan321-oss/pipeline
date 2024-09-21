@@ -12,7 +12,7 @@ pipeline{
     stage("build the docker file"){
         agent any
         steps {
-            dir('jenkinspipeline/application') {
+            dir('application') {
                 sh 'docker build -t nodeapp .'
             }
        
